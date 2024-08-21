@@ -1,0 +1,46 @@
+SELECT CONCAT(CONCAT(CAST(Name AS char(2)), '>'),
+CASE Code
+WHEN 'D' THEN 'BRD'
+ELSE Code
+END)
+
+
+SELECT * FROM Province
+WHERE area IS NOT NULL
+
+SELECT * FROM Province
+WHERE NOT (area > 0)
+
+SELECT Cu.Name AS Country, Cu.Capital, C.Population
+FROM Country Cu LEFT OUTER JOIN City C
+ON Cu.Capital = C.Name
+
+SELECT COUNT(Code),MAX(Area),MIN(Area),AVG(Area)
+FROM Country
+
+SELECT COUNT(*)
+FROM Member 
+WHERE Organization = 'Nato'
+
+SELECT COUNT(DISTINCT Organization) FROM Member
+
+SELECT Country, AVG(Population) FROM City
+GROUP BY Country
+
+SELECT Country, AVG(Population) FROM City
+GROUP BY Country
+HAVING AVG(Population) < 2000000
+
+SELECT Country, Max(Population) FROM City
+GROUP BY Country
+
+SELECT Country, Min(Population) FROM City
+GROUP BY Country
+HAVING Min(Population) >2000000
+
+SELECT Country, SUM(Population) FROM City
+GROUP BY Country
+
+SELECT Country, SUM(Population) FROM City
+GROUP BY Country
+HAVING SUM(Population) > 3000000
