@@ -1,0 +1,7 @@
+CREATE TABLE COUNTRY
+ ( Name VARCHAR(32) NOT NULL UNIQUE,
+   Code VARCHAR(2) PRIMARY KEY,
+   Capital VARCHAR(35),
+   Population BIGINT,
+   Area FLOAT
+);
